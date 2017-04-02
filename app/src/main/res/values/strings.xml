@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">BMI Calculator</string>
+    <string name="massc">Mass:</string>
+    <string name="heightc">Height:</string>
+    <string name="mass">mass</string>
+    <string name="height">height</string>
+    <string name="calculate">Calculate</string>
+    <string name="bmi">Your result:</string>
+    <string name="incorrect_value">Incorrect value</string>
+    <string name="overweight">overweight</string>
+    <string name="underweight">underweight</string>
+    <string name="obesity">obesity</string>
+    <string name="ok">ok</string>
+    <string name="save">Save</string>
+    <string name="share">Share</string>
+    <string name="about">About</string>
+    <string name="savedToast">Input saved</string>
+    <string name="reset">Reset</string>
+    <string name="shareResult">My BMI:</string>
+    <string name="imageDesc">Weight image</string>
+    <string name="about_title">Simple BMI Calculator</string>
+    <string name="about_version">Version: %1$s</string>
+    <string name="about_description">Simple BMI Calculator with ability to save your input for further review and share results.</string>
+    <string name="about_coded">Coded by:</string>
+    <string name="about_author">Kacper Kasztelanic\n200746</string>
+    <string name="about_date">March 2017</string>
+    <string-array name="mass_units">
+        <item>kg</item>
+        <item>lb</item>
+    </string-array>
+    <string-array name="height_units">
+        <item>m</item>
+        <item>ft</item>
+    </string-array>
+</resources>
