@@ -24,7 +24,11 @@ import org.apache.commons.lang3.math.NumberUtils;
 import java.util.Locale;
 
 import butterknife.ButterKnife;
+<<<<<<< HEAD
 import butterknife.BindView;
+=======
+import butterknife.InjectView;
+>>>>>>> 1155a45db0432ac5b6b6dca40e2451fa29383c37
 
 import pwr.kasztelanic.app1.counters.CountBMIForKgM;
 import pwr.kasztelanic.app1.counters.ICountBMI;
@@ -32,7 +36,11 @@ import pwr.kasztelanic.app1.utils.ImperialMetricsUnitsConverter;
 import pwr.kasztelanic.app1.utils.WeightJudge;
 import pwr.kasztelanic.app1.utils.WeightStatus;
 
+<<<<<<< HEAD
 public class MainActivity extends Activity
+=======
+public class MainActivity extends Activity implements View.OnFocusChangeListener, TextWatcher, AdapterView.OnItemSelectedListener
+>>>>>>> 1155a45db0432ac5b6b6dca40e2451fa29383c37
 {
     private static final int LB_ITEM_POSITION = 1;
     private static final int FT_ITEM_POSITION = 1;
@@ -52,6 +60,7 @@ public class MainActivity extends Activity
     private final ICountBMI countBMI = new CountBMIForKgM();
     private ShareActionProvider shareActionProvider;
 
+<<<<<<< HEAD
     @BindView(R.id.scrollView)
     ScrollView scrollView;
     @BindView(R.id.yourResultTV)
@@ -67,6 +76,23 @@ public class MainActivity extends Activity
     @BindView(R.id.massUnitSpinner)
     Spinner massUnitSpinner;
     @BindView(R.id.heightUnitSpinner)
+=======
+    @InjectView(R.id.scrollView)
+    ScrollView scrollView;
+    @InjectView(R.id.yourResultTV)
+    TextView yourResultTV;
+    @InjectView(R.id.resultTV)
+    TextView resultTV;
+    @InjectView(R.id.resultCommentTV)
+    TextView resultCommentTV;
+    @InjectView(R.id.massET)
+    EditText massET;
+    @InjectView(R.id.heightET)
+    EditText heightET;
+    @InjectView(R.id.massUnitSpinner)
+    Spinner massUnitSpinner;
+    @InjectView(R.id.heightUnitSpinner)
+>>>>>>> 1155a45db0432ac5b6b6dca40e2451fa29383c37
     Spinner heightUnitSpinner;
 
     private String userInputMass = null;
@@ -83,6 +109,7 @@ public class MainActivity extends Activity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+<<<<<<< HEAD
         ButterKnife.bind(this);
         massET.setOnFocusChangeListener(focusChangeListener);
         heightET.setOnFocusChangeListener(focusChangeListener);
@@ -90,6 +117,15 @@ public class MainActivity extends Activity
         heightET.addTextChangedListener(textWatcher);
         massUnitSpinner.setOnItemSelectedListener(itemSelectedListener);
         heightUnitSpinner.setOnItemSelectedListener(itemSelectedListener);
+=======
+        ButterKnife.inject(this);
+        massET.setOnFocusChangeListener(this);
+        heightET.setOnFocusChangeListener(this);
+        massET.addTextChangedListener(this);
+        heightET.addTextChangedListener(this);
+        massUnitSpinner.setOnItemSelectedListener(this);
+        heightUnitSpinner.setOnItemSelectedListener(this);
+>>>>>>> 1155a45db0432ac5b6b6dca40e2451fa29383c37
         setUserInputFromStrings();
         setUserUnitSelection();
         if (savedInstanceState != null)
@@ -338,6 +374,47 @@ public class MainActivity extends Activity
     }
 
     @Override
+<<<<<<< HEAD
+=======
+    public void onFocusChange(View view, boolean hasFocus)
+    {
+        if (!hasFocus)
+            hideSoftKeyboard(view);
+    }
+
+    @Override
+    public void beforeTextChanged(CharSequence s, int start, int count, int after)
+    {
+    }
+
+    @Override
+    public void onTextChanged(CharSequence s, int start, int before, int count)
+    {
+        boolean changedByUser = before != count;
+        if (isResultsAreaShown && changedByUser)
+            clearResultsArea();
+    }
+
+    @Override
+    public void afterTextChanged(Editable s)
+    {
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
+    {
+        if (isMassUnitChanged() || isHeightUnitChanged())
+            clearResultsArea();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent)
+    {
+
+    }
+
+    @Override
+>>>>>>> 1155a45db0432ac5b6b6dca40e2451fa29383c37
     public boolean onCreateOptionsMenu(Menu menu)
     {
         getMenuInflater().inflate(R.menu.menu_main, menu);
@@ -440,6 +517,7 @@ public class MainActivity extends Activity
         getPreferences(Context.MODE_PRIVATE).edit().clear().apply();
         Toast.makeText(this, getString(R.string.reset), Toast.LENGTH_SHORT).show();
     }
+<<<<<<< HEAD
 
     private View.OnFocusChangeListener focusChangeListener = new View.OnFocusChangeListener()
     {
@@ -490,4 +568,6 @@ public class MainActivity extends Activity
 
         }
     };
+=======
+>>>>>>> 1155a45db0432ac5b6b6dca40e2451fa29383c37
 }
